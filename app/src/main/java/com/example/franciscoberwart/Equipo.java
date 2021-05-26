@@ -1,6 +1,6 @@
 package com.example.franciscoberwart;
 
-public class Equipos {
+public class Equipo {
 
     private String idEquipo, nombreEquipo, tipoEquipo;
     private int valorEquipo;

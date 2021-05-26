@@ -3,12 +3,15 @@ package com.example.franciscoberwart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Adapter;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Listview -> Listado de Usuarios.
+    // Listview -> Listado de Usuario.
     private ListView listView;
+    // Adapter para el listview.
+    private Adapter adapterUsuarios;
 
 
     @Override
