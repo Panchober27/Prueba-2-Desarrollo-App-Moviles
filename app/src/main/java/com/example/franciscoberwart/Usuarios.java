@@ -5,6 +5,4 @@ public class Usuarios {
     private String nombresUsuario, apellidosUsuario;
 
 
-
-
 }

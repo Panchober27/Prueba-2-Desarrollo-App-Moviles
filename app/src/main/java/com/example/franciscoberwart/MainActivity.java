@@ -11,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Metodo para inicializar los componentes.
     private void inits(){
+        listView = findViewById(R.id.listView);
+
 
     }
 }
