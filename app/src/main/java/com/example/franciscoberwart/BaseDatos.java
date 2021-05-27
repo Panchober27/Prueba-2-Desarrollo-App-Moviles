@@ -9,9 +9,23 @@ import java.util.ArrayList;
 
 public class BaseDatos {
 
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-    private ArrayList<Equipo> listaEquipos = new ArrayList<>();
+    private static ArrayList<Usuario> tablaUsuarios = new ArrayList<>();
+    private static ArrayList<Equipo> listaEquipos = new ArrayList<>();
 
+    // Metodo para agregar un usuario a tabla/lista
+    public static boolean insertUser(Usuario user) {
+        tablaUsuarios.add(user);
+        return true;
+    }
+
+    // Metodo para retornar los datos de los usuarios.
+    public static ArrayList<Usuario> listUsers() {
+        ArrayList<Usuario> listaUsers = new ArrayList<Usuario>();
+        for (Usuario us : tablaUsuarios) {
+            listaUsers.add(us);
+        }
+        return listaUsers;
+    }
 
 
 }
