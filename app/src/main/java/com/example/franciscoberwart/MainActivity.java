@@ -35,28 +35,7 @@ public class MainActivity extends AppCompatActivity {
     // Metodo para inicializar los componentes.
     private void inits() {
         listView = findViewById(R.id.listView);
-
-        BaseDatos.insertUser(new Usuario("pancho", "Francisco", "Berwart", "Informatica"));
-        BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
-        BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));
-
-        // BaseDatos. insertar Equipo a usuario.
-        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
-        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
-        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
-        // 3 EQUIPOS AL USUARIO PANCHO.
-
-        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 1",12300));
-        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 2",45000));
-        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 3",2500));
-        // 3 EQUIPOS AL USUARIO MONO.
-
-        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 1",15000));
-        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 2",34790));
-        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 3",28690));
-        // 3 EQUIPOS AL USUARIO APU.
-
-
+        chargeSistem();
         adapterUsuarios = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_list_item_1, BaseDatos.listUsers());
         listView.setAdapter(adapterUsuarios);
 
@@ -87,4 +66,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    // Metodo para cargar datos Iniciales a los Usuarios y sus Equipos.
+    private void chargeSistem(){
+        BaseDatos.insertUser(new Usuario("pancho", "Francisco", "Berwart", "Informatica"));
+        BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
+        BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));
+        BaseDatos.insertUser(new Usuario("alvaro","Alvaro","Guerrero","Comunicaiones"));
+
+        // BaseDatos. insertar Equipo a usuario.
+        BaseDatos.addEquipToUser("pancho",new Equipo("linea1","Nada 1",2000));
+        BaseDatos.addEquipToUser("pancho",new Equipo("linea2","Nada 1",2000));
+        // 2 EQUIPOS AL USUARIO PANCHO.
+
+        BaseDatos.addEquipToUser("mono",new Equipo("linea3","Mono 1",12300));
+        BaseDatos.addEquipToUser("mono",new Equipo("linea4","Mono 2",45000));
+        // 2 EQUIPOS AL USUARIO MONO.
+
+        BaseDatos.addEquipToUser("apu",new Equipo("linea5","Japus 1",15000));
+        BaseDatos.addEquipToUser("apu",new Equipo("linea6","Japus 2",34790));
+        // 2 EQUIPOS AL USUARIO APU.
+
+        BaseDatos.addEquipToUser("alvaro",new Equipo("linea7","Alvaro 1",15000));
+        BaseDatos.addEquipToUser("alvaro",new Equipo("linea8","Alvaro 2",34790));
+        // 2 EQUIPOS AL USUARIO ALVARO.
+
+    }
+
 }

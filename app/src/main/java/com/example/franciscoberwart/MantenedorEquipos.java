@@ -24,6 +24,10 @@ public class MantenedorEquipos extends AppCompatActivity {
     private ListView listaEquipos;
     private ArrayAdapter<Equipo> adapterEquipos;
 
+    private String[] listSerie = new String[12];// para colocar en el autoCompleteTextView
+    private ArrayAdapter<String> adapterSeries;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,12 @@ public class MantenedorEquipos extends AppCompatActivity {
         autoSerieEquipo = findViewById(R.id.autoSeries);
         tvTipoEquipo = findViewById(R.id.tvTipoEquipo);
         tvValorEquipo = findViewById(R.id.tvTipoEquipo);
+        // Carga del arreglo con las series(id) de los equipos.
+        listSerie = new String[]{
+                "linea 1", "linea 2", "linea 3", "linea 4", "linea 5", "linea 6", "linea 7", "linea 8",
+                "linea 9", "linea 10", "linea 11", "linea 12"};
+        adapterSeries = new ArrayAdapter<String>(MantenedorEquipos.this, android.R.layout.simple_list_item_1, listSerie);
+        autoSerieEquipo.setAdapter(adapterSeries);
 
     }
 
@@ -60,7 +70,7 @@ public class MantenedorEquipos extends AppCompatActivity {
         if (btn.getId() == R.id.btnDeleteEquipo) { // Boton para
             Toast.makeText(MantenedorEquipos.this, "Borrar un Equipo", Toast.LENGTH_LONG).show();
         }
-        if(btn.getId() == R.id.btnVolver){ // Boton para volver a la primera activity.
+        if (btn.getId() == R.id.btnVolver) { // Boton para volver a la primera activity.
             finish();
         }
 

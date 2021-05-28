@@ -32,6 +32,10 @@ public class BaseDatos {
                 //us.addEquipToUser(equipo); // FALTA PARAMETRO: a que usuario se asigna el equipo?. / o esta resuelto eso?.
                 //tablaEquipos.add(equipo);
                 us.addEquipToUser(equipo);
+
+                // Validar que el equipo no exista (segun serie.)
+
+
             } // CREO QUE ESTA LISTO EL TEMA DE VER A QUE USUARIO :)
         }
 
