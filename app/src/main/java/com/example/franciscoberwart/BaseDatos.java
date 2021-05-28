@@ -28,8 +28,8 @@ public class BaseDatos {
     public static boolean addEquipToUser(String user, Equipo equipo) { // user-> atributo usuario de un Usuario.xD
         for (Usuario us : tablaUsuarios) {
             if (us.getUsuario().equals(user)) {
-                us.addEquipToUser(equipo);
-            }
+                us.addEquipToUser(equipo); // FALTA PARAMETRO: a que usuario se asigna el equipo?. / o esta resuelto eso?.
+            } // CREO QUE ESTA LISTO EL TEMA DE VER A QUE USUARIO :)
         }
 
         return true;

@@ -40,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
         BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
         BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));
 
+        // BaseDatos. insertar Equipo a usuario.
+        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
+        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
+        BaseDatos.addEquipToUser("pancho",new Equipo("AAA","Nada 1",2000));
+        // 3 EQUIPOS AL USUARIO PANCHO.
+
+        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 1",12300));
+        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 2",45000));
+        BaseDatos.addEquipToUser("mono",new Equipo("BBB","Mono 3",2500));
+        // 3 EQUIPOS AL USUARIO MONO.
+
+        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 1",15000));
+        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 2",34790));
+        BaseDatos.addEquipToUser("apu",new Equipo("CCC","Japus 3",28690));
+        // 3 EQUIPOS AL USUARIO APU.
+
 
         adapterUsuarios = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_list_item_1, BaseDatos.listUsers());
         listView.setAdapter(adapterUsuarios);

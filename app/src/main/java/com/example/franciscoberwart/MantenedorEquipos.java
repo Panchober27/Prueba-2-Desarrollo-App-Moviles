@@ -49,16 +49,16 @@ public class MantenedorEquipos extends AppCompatActivity {
             ArrayList<Equipo> listEquipos = user.getListaEquipos(); // Reemplazar por BaseDatos.getListaDeEquipos(String usuario)
             // Buscar el usuario que corresponde(el que esta instanciado ahora mismo?)
 
-            Toast.makeText(MantenedorEquipos.this, "Lista Equipos: " + listEquipos, Toast.LENGTH_LONG).show();
+            //Toast.makeText(MantenedorEquipos.this, "Lista Equipos: " + listEquipos, Toast.LENGTH_LONG).show();
 
-            Log.d("TAG_", "Usuario user: " + user.getUsuario());
-            Log.d("TAG_", "Usuario nombre: " + user.getNombre());
-            Log.d("TAG_", "Usuario apellido: " + user.getApellido());
-            Log.d("TAG_", "Usuario depto: " + user.getDepartamento());
-            Log.d("TAG_", "EQUIPO 1 serie: " + equipo.getSerie());
-            Log.d("TAG_", "EQUIPO 1 descripcion: " + equipo.getDescripcion());
-            Log.d("TAG_", "EQUIPO 1 valor: " + equipo.getValor());
-            Log.d("TAG_", "");
+            //Log.d("TAG_", "Usuario user: " + user.getUsuario());
+            //Log.d("TAG_", "Usuario nombre: " + user.getNombre());
+            //Log.d("TAG_", "Usuario apellido: " + user.getApellido());
+            //Log.d("TAG_", "Usuario depto: " + user.getDepartamento());
+            //Log.d("TAG_", "EQUIPO 1 serie: " + equipo.getSerie());
+            //Log.d("TAG_", "EQUIPO 1 descripcion: " + equipo.getDescripcion());
+            //Log.d("TAG_", "EQUIPO 1 valor: " + equipo.getValor());
+            //Log.d("TAG_", "");
 
             // Se cargan los datos(atributos del usuario) a los TextView :)
             tvNomUser.setText(tvNomUser.getText() + " " + user.getNombre() + " " + user.getApellido());

@@ -15,26 +15,33 @@ public class Usuario implements Serializable {
         this.departamento = departamento;
 
         // Cuando agrego esto al objeto falla lo que llevo construido :(
-        listaEquipos.add(new Equipo("111", "Nose 1", 2000));
-        listaEquipos.add(new Equipo("222", "Nose 2", 2500));
+        //listaEquipos.add(new Equipo("111", "Nose 1", 2000));
+        //listaEquipos.add(new Equipo("222", "Nose 2", 2500));
 
     }
 
     // Metodo que retorna el listado de Equipos de un Usuario.
-    public ArrayList<Equipo> getListaEquipos(){
+    public ArrayList<Equipo> getListaEquipos() {
         ArrayList<Equipo> equipos = listaEquipos;
         return equipos;
     }
 
     // Metodo para retornar un equipo por su serie.
-    public Equipo findEquipoBySerie(String serie){
-        return listaEquipos.get(0);
+    // ESTE METODO DEBE SER PROGRAMADO CORRECTAMENTE!!!!
+    public Equipo findEquipoBySerie(String serie) {
+        // Recibo la serie y busco en la lista de equipos...
+        for (Equipo e : listaEquipos) {
+            if (e.getSerie().equals(serie)) { // Equivalencia de series en un Equipo.
+                return e;
+            }
+        }
+        return null;
     }
 
     // Metodo para agregar equipos al usuario.
-    public void addEquipToUser(Equipo equipo){
+    public void addEquipToUser(Equipo equipo) {
         listaEquipos.add(equipo);
-    } // FALTA "MARCAR" AL USUARIO
+    } // FALTA "MARCAR" AL USUARIO // Que reciba parametro de usuario:
 
 
     @Override
