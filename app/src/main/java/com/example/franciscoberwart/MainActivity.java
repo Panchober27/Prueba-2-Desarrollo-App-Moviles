@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Usuario us = (Usuario) parent.getItemAtPosition(position);
                 Toast.makeText(MainActivity.this, "Eliminar usuario: " + us.getUsuario() + "?", Toast.LENGTH_LONG).show();
+                /**
+                 * Agregar un ConfirmAlertDialog para eliminar al usuario seleccionado de la lista.
+                 * crear metodo para borrar un usuario en base a su atributo usuario:!!!
+                 */
                 return true;
             }
         });

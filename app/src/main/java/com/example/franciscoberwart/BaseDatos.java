@@ -10,13 +10,31 @@ import java.util.ArrayList;
 public class BaseDatos {
 
     private static ArrayList<Usuario> tablaUsuarios = new ArrayList<>();
-    private static ArrayList<Equipo> listaEquipos = new ArrayList<>();
+    private static ArrayList<Equipo> tablaEquipos = new ArrayList<>();
+
+
+    //Metodo constructor para que la clase no se pueda instanciar.
+    private BaseDatos() {}
+
 
     // Metodo para agregar un usuario a tabla/lista
     public static boolean insertUser(Usuario user) {
         tablaUsuarios.add(user);
         return true;
     }
+
+    // Metodo para asignar Equipos a un usuario.
+    // Recibe como parametro un usuario y el equipo nuevo.
+    public static boolean addEquipToUser(String user, Equipo equipo) { // user-> atributo usuario de un Usuario.xD
+        for (Usuario us : tablaUsuarios) {
+            if (us.getUsuario().equals(user)) {
+                us.addEquipToUser(equipo);
+            }
+        }
+
+        return true;
+    }
+
 
     // Metodo para retornar los datos de los usuarios.
     public static ArrayList<Usuario> listUsers() {

@@ -31,6 +31,11 @@ public class Usuario implements Serializable {
         return listaEquipos.get(0);
     }
 
+    // Metodo para agregar equipos al usuario.
+    public void addEquipToUser(Equipo equipo){
+        listaEquipos.add(equipo);
+    } // FALTA "MARCAR" AL USUARIO
+
 
     @Override
     public String toString() {
