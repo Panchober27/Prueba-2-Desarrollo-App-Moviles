@@ -32,8 +32,6 @@ public class BaseDatos {
                 //us.addEquipToUser(equipo); // FALTA PARAMETRO: a que usuario se asigna el equipo?. / o esta resuelto eso?.
                 //tablaEquipos.add(equipo);
                 us.addEquipToUser(equipo);
-
-
             } // CREO QUE ESTA LISTO EL TEMA DE VER A QUE USUARIO :)
         }
 
@@ -60,6 +58,21 @@ public class BaseDatos {
             }
         }
         return null;
+    }
+
+
+    // Metodo para obtener el valor total de equipos de un usaurio.
+    public static int getValorTotal(String user) { // -> atributo: Usuario.usuario!
+        // valorTotal => a la suma de todos los getValor()!!!
+        int valorTotal = 0;
+        for (Usuario u : tablaUsuarios) {
+            if (u.getUsuario().equals(user)) {
+                for (Equipo e : tablaEquipos) {
+                    valorTotal += e.getValor();
+                }
+            }
+        }
+        return valorTotal;
     }
 
 

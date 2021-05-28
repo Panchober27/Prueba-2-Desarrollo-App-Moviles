@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MantenedorEquipos extends AppCompatActivity {
 
-    private TextView tvNomUser, tvDeptUser;
+    private TextView tvNomUser, tvDeptUser, valorTotal;
     private ListView listaEquipos;
     private ArrayAdapter<Equipo> adapterEquipos;
 
@@ -36,6 +36,7 @@ public class MantenedorEquipos extends AppCompatActivity {
         tvNomUser = findViewById(R.id.tvNomUser);
         tvDeptUser = findViewById(R.id.tvDeptUser);
         listaEquipos = findViewById(R.id.listEquipos);
+        valorTotal = findViewById(R.id.tvValorTotal);
     }
 
 
@@ -61,6 +62,7 @@ public class MantenedorEquipos extends AppCompatActivity {
                     listEquipos);
             listaEquipos.setAdapter(adapterEquipos);
 
+            valorTotal.setText(valorTotal.getText() + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
         }
     }
 
@@ -71,7 +73,6 @@ public class MantenedorEquipos extends AppCompatActivity {
                 Equipo eq = (Equipo) parent.getItemAtPosition(position);
                 Toast.makeText(MantenedorEquipos.this, "Eliminar Equipo: " + eq.getSerie() + " " + eq.getDescripcion() + "?",
                         Toast.LENGTH_LONG).show();
-
                 return true;
             }
         });
