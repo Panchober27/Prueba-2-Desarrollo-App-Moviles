@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="Total a cargo: $"
         android:textAlignment="textEnd"
-        android:textSize="27dp">
+        android:textSize="17dp">
 
     </TextView>
 
@@ -72,6 +72,45 @@
 
 
     </LinearLayout>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoSeries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Serie Equipo"
+        android:textSize="20dp">
+
+    </AutoCompleteTextView>
+
+
+    <TextView
+        android:id="@+id/tvTipoEquipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Tipo de Equipo:"
+        android:layout_marginVertical="10dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvValorEquipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Valor Equipo:"
+        android:layout_marginVertical="10dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="volver"
+        app:backgroundTint="#3F51B5">
+
+    </Button>
 
 
 </LinearLayout>

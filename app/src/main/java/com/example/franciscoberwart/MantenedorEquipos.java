@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +18,9 @@ import java.util.ArrayList;
 
 public class MantenedorEquipos extends AppCompatActivity {
 
-    private TextView tvNomUser, tvDeptUser, valorTotal;
+    private TextView tvNomUser, tvDeptUser, tvValorTotal, tvTipoEquipo, tvValorEquipo;
+    private Button btnAddEquip, btnDeleteEquip, btnVolver;
+    private AutoCompleteTextView autoSerieEquipo;
     private ListView listaEquipos;
     private ArrayAdapter<Equipo> adapterEquipos;
 
@@ -28,6 +32,7 @@ public class MantenedorEquipos extends AppCompatActivity {
         inits();
         chargeBundles();
         chargeListEvents();
+        events();
 
     }
 
@@ -36,7 +41,52 @@ public class MantenedorEquipos extends AppCompatActivity {
         tvNomUser = findViewById(R.id.tvNomUser);
         tvDeptUser = findViewById(R.id.tvDeptUser);
         listaEquipos = findViewById(R.id.listEquipos);
-        valorTotal = findViewById(R.id.tvValorTotal);
+        tvValorTotal = findViewById(R.id.tvValorTotal);
+        btnAddEquip = findViewById(R.id.btnAddEquipo);
+        btnDeleteEquip = findViewById(R.id.btnDeleteEquipo);
+        btnVolver = findViewById(R.id.btnVolver);
+        autoSerieEquipo = findViewById(R.id.autoSeries);
+        tvTipoEquipo = findViewById(R.id.tvTipoEquipo);
+        tvValorEquipo = findViewById(R.id.tvTipoEquipo);
+
+    }
+
+
+    // Metodo para ejecutar funciones segun boton apretado.
+    private void clickButtons(View btn) {
+        if (btn.getId() == R.id.btnAddEquipo) { // Boton para añadir un equipo.
+            Toast.makeText(MantenedorEquipos.this, "Añadir un Equipo", Toast.LENGTH_LONG).show();
+        }
+        if (btn.getId() == R.id.btnDeleteEquipo) { // Boton para
+            Toast.makeText(MantenedorEquipos.this, "Borrar un Equipo", Toast.LENGTH_LONG).show();
+        }
+        if(btn.getId() == R.id.btnVolver){ // Boton para volver a la primera activity.
+            finish();
+        }
+
+
+    }
+
+    // Metodo para asignar eventos  a los botones.
+    private void events() {
+        btnAddEquip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButtons(v);
+            }
+        });
+        btnDeleteEquip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButtons(v);
+            }
+        });
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButtons(v);
+            }
+        });
     }
 
 
@@ -62,7 +112,7 @@ public class MantenedorEquipos extends AppCompatActivity {
                     listEquipos);
             listaEquipos.setAdapter(adapterEquipos);
 
-            valorTotal.setText(valorTotal.getText() + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
+            tvValorTotal.setText(tvValorTotal.getText() + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
         }
     }
 
