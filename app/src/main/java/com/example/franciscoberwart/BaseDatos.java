@@ -14,7 +14,8 @@ public class BaseDatos {
 
 
     //Metodo constructor para que la clase no se pueda instanciar.
-    private BaseDatos() {}
+    private BaseDatos() {
+    }
 
 
     // Metodo para agregar un usuario a tabla/lista
@@ -28,7 +29,11 @@ public class BaseDatos {
     public static boolean addEquipToUser(String user, Equipo equipo) { // user-> atributo usuario de un Usuario.xD
         for (Usuario us : tablaUsuarios) {
             if (us.getUsuario().equals(user)) {
-                us.addEquipToUser(equipo); // FALTA PARAMETRO: a que usuario se asigna el equipo?. / o esta resuelto eso?.
+                //us.addEquipToUser(equipo); // FALTA PARAMETRO: a que usuario se asigna el equipo?. / o esta resuelto eso?.
+                //tablaEquipos.add(equipo);
+                us.addEquipToUser(equipo);
+
+
             } // CREO QUE ESTA LISTO EL TEMA DE VER A QUE USUARIO :)
         }
 
@@ -44,5 +49,18 @@ public class BaseDatos {
         }
         return listaUsers;
     }
+
+
+    // Metodo que retorna la lista de Equipos de un usuario.
+    public static ArrayList<Equipo> getTablaEquipos(String user) {
+        for (Usuario u : tablaUsuarios) {
+            if (u.getUsuario().equals(user)) { // Existe un usuario con el atributo usuario(user).
+                tablaEquipos = u.getListaEquipos();
+                return tablaEquipos;
+            }
+        }
+        return null;
+    }
+
 
 }

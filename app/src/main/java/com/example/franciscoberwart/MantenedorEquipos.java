@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MantenedorEquipos extends AppCompatActivity {
@@ -26,7 +27,6 @@ public class MantenedorEquipos extends AppCompatActivity {
 
         inits();
         chargeBundles();
-
         chargeListEvents();
 
     }
@@ -44,21 +44,13 @@ public class MantenedorEquipos extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) { // Viene algo....
             Usuario user = (Usuario) bundle.getSerializable("usuario");
-            Equipo equipo = user.findEquipoBySerie("111");
+            //Equipo equipo = user.findEquipoBySerie("111");
 
-            ArrayList<Equipo> listEquipos = user.getListaEquipos(); // Reemplazar por BaseDatos.getListaDeEquipos(String usuario)
+            //ArrayList<Equipo> listEquipos = user.getListaEquipos(); // Reemplazar por BaseDatos.getListaDeEquipos(String usuario)
             // Buscar el usuario que corresponde(el que esta instanciado ahora mismo?)
 
-            //Toast.makeText(MantenedorEquipos.this, "Lista Equipos: " + listEquipos, Toast.LENGTH_LONG).show();
 
-            //Log.d("TAG_", "Usuario user: " + user.getUsuario());
-            //Log.d("TAG_", "Usuario nombre: " + user.getNombre());
-            //Log.d("TAG_", "Usuario apellido: " + user.getApellido());
-            //Log.d("TAG_", "Usuario depto: " + user.getDepartamento());
-            //Log.d("TAG_", "EQUIPO 1 serie: " + equipo.getSerie());
-            //Log.d("TAG_", "EQUIPO 1 descripcion: " + equipo.getDescripcion());
-            //Log.d("TAG_", "EQUIPO 1 valor: " + equipo.getValor());
-            //Log.d("TAG_", "");
+            ArrayList<Equipo> listEquipos = BaseDatos.getTablaEquipos(user.getUsuario()); // Se obtiene la lista de equipos de un usuario.
 
             // Se cargan los datos(atributos del usuario) a los TextView :)
             tvNomUser.setText(tvNomUser.getText() + " " + user.getNombre() + " " + user.getApellido());
@@ -66,7 +58,7 @@ public class MantenedorEquipos extends AppCompatActivity {
 
             // Cargar al ListView de equipos, el arreglo con los equipos que le pertenecen al usuario.
             adapterEquipos = new ArrayAdapter<Equipo>(MantenedorEquipos.this, android.R.layout.simple_list_item_1,
-                    user.getListaEquipos());
+                    listEquipos);
             listaEquipos.setAdapter(adapterEquipos);
 
         }
