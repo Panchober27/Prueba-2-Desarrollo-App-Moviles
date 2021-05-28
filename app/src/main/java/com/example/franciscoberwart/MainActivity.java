@@ -9,6 +9,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, MantenedorEquipos.class);
                 i.putExtra("usuario", us);
                 startActivity(i);
+            }
+        });
+        // Ahora el longClick, depues esto me abrira una ventana de confirmacion para eliminar al usuario seleccionado!
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Usuario us = (Usuario) parent.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this, "Eliminar usuario: " + us.getUsuario() + "?", Toast.LENGTH_LONG).show();
+                return true;
             }
         });
     }

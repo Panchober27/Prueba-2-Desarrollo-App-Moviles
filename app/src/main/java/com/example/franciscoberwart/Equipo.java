@@ -1,6 +1,8 @@
 package com.example.franciscoberwart;
 
-public class Equipo {
+import java.io.Serializable;
+
+public class Equipo implements Serializable {
 
     private String serie, descripcion;
     private int valor;
@@ -9,6 +11,12 @@ public class Equipo {
         this.serie = serie;
         this.descripcion = descripcion;
         this.valor = valor;
+    }
+
+
+    @Override
+    public String toString() {
+        return serie + " " + descripcion + " " + valor;
     }
 
     public String getSerie() {
