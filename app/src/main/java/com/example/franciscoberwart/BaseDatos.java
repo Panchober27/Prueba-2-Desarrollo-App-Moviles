@@ -1,5 +1,7 @@
 package com.example.franciscoberwart;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,25 @@ public class BaseDatos {
         tablaUsuarios.add(user);
         return true;
     }
+
+    // Metodo para eliminar un usuario, utilizando su atributo usuario como parametro
+    // para encontrarlo en la tabla de la "base de datos".
+    public static void deleteUser(String user) {
+        ArrayList<Usuario> listUser = tablaUsuarios;
+        Usuario us = null;
+        for (Usuario u : listUser) {
+            if (u.getUsuario().equals(user)) { // Se encontro un usuario.
+                //tablaUsuarios.remove(u);
+                us = u;
+            }
+        }
+        if (us != null) {
+            tablaUsuarios.remove(us);
+        } else {
+            Log.d("ERRORES_", "deleteUser: Fallo el metodo deleteUser-> " + us.getUsuario());
+        }
+    }
+
 
     // Metodo para asignar Equipos a un usuario.
     // Recibe como parametro un usuario y el equipo nuevo.
