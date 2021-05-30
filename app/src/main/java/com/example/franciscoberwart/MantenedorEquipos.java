@@ -33,6 +33,8 @@ public class MantenedorEquipos extends AppCompatActivity {
     // para poder usarla en distintos metodos.
     private String idequipo;
 
+    // Variable del usaurio. que se cargara con el bundle para poder utilizarla en mas de una funcion
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,14 +112,12 @@ public class MantenedorEquipos extends AppCompatActivity {
     private void chargeBundles() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) { // Viene algo....
-            Usuario user = (Usuario) bundle.getSerializable("usuario");
+            user = (Usuario) bundle.getSerializable("usuario");
             //Equipo equipo = user.findEquipoBySerie("111");
 
             //ArrayList<Equipo> listEquipos = user.getListaEquipos(); // Reemplazar por BaseDatos.getListaDeEquipos(String usuario)
             // Buscar el usuario que corresponde(el que esta instanciado ahora mismo?)
 
-
-            ArrayList<Equipo> listEquipos = BaseDatos.getTablaEquipos(user.getUsuario()); // Se obtiene la lista de equipos de un usuario.
 
             // Se cargan los datos(atributos del usuario) a los TextView :)
             tvNomUser.setText(tvNomUser.getText() + " " + user.getNombre() + " " + user.getApellido());
@@ -125,7 +125,7 @@ public class MantenedorEquipos extends AppCompatActivity {
 
             // Cargar al ListView de equipos, el arreglo con los equipos que le pertenecen al usuario.
             adapterEquipos = new ArrayAdapter<Equipo>(MantenedorEquipos.this, android.R.layout.simple_list_item_1,
-                    listEquipos);
+                    BaseDatos.getTablaEquipos(user.getUsuario()));
             listaEquipos.setAdapter(adapterEquipos);
 
             tvValorTotal.setText(tvValorTotal.getText() + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
@@ -156,9 +156,17 @@ public class MantenedorEquipos extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Borrar el equipo.
-
-
+                        BaseDatos.deleteEquipo(idequipo);
                         // Recargar el adapter de los equipos.
+                        // Recargar el valor total de equipos a cargo del usuario.
+
+                        // Cargar al ListView de equipos, el arreglo con los equipos que le pertenecen al usuario.
+                        adapterEquipos = new ArrayAdapter<Equipo>(MantenedorEquipos.this, android.R.layout.simple_list_item_1,
+                                BaseDatos.getTablaEquipos(user.getUsuario()));
+                        listaEquipos.setAdapter(adapterEquipos);
+
+                        tvValorTotal.setText(String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
+
                     }
                 })
                 .setNegativeButton("NO", new DialogInterface.OnClickListener() {

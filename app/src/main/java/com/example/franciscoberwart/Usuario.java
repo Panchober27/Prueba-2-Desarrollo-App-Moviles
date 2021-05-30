@@ -13,11 +13,6 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
-
-        // Cuando agrego esto al objeto falla lo que llevo construido :(
-        //listaEquipos.add(new Equipo("111", "Nose 1", 2000));
-        //listaEquipos.add(new Equipo("222", "Nose 2", 2500));
-
     }
 
     // Metodo que retorna el listado de Equipos de un Usuario.

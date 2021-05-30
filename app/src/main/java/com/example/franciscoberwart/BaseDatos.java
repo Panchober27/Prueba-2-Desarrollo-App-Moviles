@@ -2,6 +2,7 @@ package com.example.franciscoberwart;
 
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -88,10 +89,17 @@ public class BaseDatos {
 
     // Metodo para eliminar un equipo de un usaurio.
     public static void deleteEquipo(String serie) {
-        for (Equipo e:tablaEquipos) {
-            if(e.getSerie().equals(serie)){ // Se encontro el equipo a borrar.
-
+        ArrayList<Equipo> list = tablaEquipos;
+        Equipo equipo = null;
+        for (Equipo e : list) {
+            if (e.getSerie().equals(serie)) { // Se encontro el equipo a borrar.
+                equipo = e;
             }
+        }
+        if (equipo != null) {
+            tablaEquipos.remove(equipo);
+        } else {
+            Log.d("ERRORES_", "deleteEquipo: Fallo el metodo deleteEquipo()  " + equipo.getSerie());
         }
     }
 
