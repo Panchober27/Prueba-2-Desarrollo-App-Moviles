@@ -148,8 +148,8 @@ public class MantenedorEquipos extends AppCompatActivity {
     // Metodo para mostrar el Dialog de confirmación para eliminar un equipo.
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MantenedorEquipos.this);
-        builder.setTitle("Eliminar ?");
-        builder.setMessage("equipo?")
+        builder.setTitle("Eliminar equipo?");
+        builder.setMessage(idequipo)
                 .setIcon(R.mipmap.ic_launcher)
                 .setCancelable(false)
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
