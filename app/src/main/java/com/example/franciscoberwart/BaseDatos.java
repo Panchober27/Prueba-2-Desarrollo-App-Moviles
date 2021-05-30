@@ -86,6 +86,16 @@ public class BaseDatos {
     }
 
 
+    // Metodo para eliminar un equipo de un usaurio.
+    public static void deleteEquipo(String serie) {
+        for (Equipo e:tablaEquipos) {
+            if(e.getSerie().equals(serie)){ // Se encontro el equipo a borrar.
+
+            }
+        }
+    }
+
+
     // Metodo para obtener el valor total de equipos de un usaurio.
     public static int getValorTotal(String user) { // -> atributo: Usuario.usuario!
         // valorTotal => a la suma de todos los getValor()!!!

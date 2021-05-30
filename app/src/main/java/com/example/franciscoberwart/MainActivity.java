@@ -79,7 +79,9 @@ MainActivity extends AppCompatActivity {
     // Metodo para mostrar el Dialog de confirmación para eliminara un usuario.
     private void shohDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("message")
+        builder.setTitle("Desea eliminar a");
+        builder.setMessage(userid)
+                .setIcon(R.mipmap.ic_launcher) // Agregar esto en devDesign
                 .setCancelable(false)
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override

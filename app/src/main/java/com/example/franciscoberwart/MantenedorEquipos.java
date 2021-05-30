@@ -1,7 +1,9 @@
 package com.example.franciscoberwart;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,10 @@ public class MantenedorEquipos extends AppCompatActivity {
 
     private String[] listSerie = new String[12];// para colocar en el autoCompleteTextView
     private ArrayAdapter<String> adapterSeries;
+
+    // Variable para almacenar y utilizar el atributo Equipo-> serie.
+    // para poder usarla en distintos metodos.
+    private String idequipo;
 
 
     @Override
@@ -131,11 +137,39 @@ public class MantenedorEquipos extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Equipo eq = (Equipo) parent.getItemAtPosition(position);
-                Toast.makeText(MantenedorEquipos.this, "Eliminar Equipo: " + eq.getSerie() + " " + eq.getDescripcion() + "?",
-                        Toast.LENGTH_LONG).show();
+                idequipo = eq.getSerie();
+                showDialog();
                 return true;
             }
         });
+    }
+
+
+    // Metodo para mostrar el Dialog de confirmación para eliminar un equipo.
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MantenedorEquipos.this);
+        builder.setTitle("Eliminar ?");
+        builder.setMessage("equipo?")
+                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Borrar el equipo.
+
+
+                        // Recargar el adapter de los equipos.
+                    }
+                })
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
 

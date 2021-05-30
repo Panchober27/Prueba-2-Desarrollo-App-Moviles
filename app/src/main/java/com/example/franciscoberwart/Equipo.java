@@ -16,7 +16,7 @@ public class Equipo implements Serializable {
 
     @Override
     public String toString() {
-        return serie + " " + descripcion + " " + valor;
+        return serie + " " + descripcion + " $" + valor;
     }
 
     public String getSerie() {
