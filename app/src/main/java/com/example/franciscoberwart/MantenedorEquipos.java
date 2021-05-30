@@ -165,7 +165,7 @@ public class MantenedorEquipos extends AppCompatActivity {
                                 BaseDatos.getTablaEquipos(user.getUsuario()));
                         listaEquipos.setAdapter(adapterEquipos);
 
-                        tvValorTotal.setText(String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
+                        tvValorTotal.setText("Total a cargo: $" + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
 
                     }
                 })
