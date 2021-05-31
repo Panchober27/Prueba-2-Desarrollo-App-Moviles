@@ -119,4 +119,30 @@ public class BaseDatos {
     }
 
 
+    // Metodo para cargar los datos iniciales de la aplicación. Usuarios y Equipos :)
+    public static void chargeSistem() {
+        BaseDatos.insertUser(new Usuario("pancho", "Francisco", "Berwart", "Informatica"));
+        BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
+        BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));
+        BaseDatos.insertUser(new Usuario("alvaro", "Alvaro", "Guerrero", "Comunicaiones"));
+
+        // BaseDatos. insertar Equipo a usuario.
+        BaseDatos.addEquipToUser("pancho", new Equipo("linea 1", "Nada 1", 2000));
+        BaseDatos.addEquipToUser("pancho", new Equipo("linea 2", "Nada 1", 2000));
+        // 2 EQUIPOS AL USUARIO PANCHO.
+
+        BaseDatos.addEquipToUser("mono", new Equipo("linea 3", "Mono 1", 12300));
+        BaseDatos.addEquipToUser("mono", new Equipo("linea 4", "Mono 2", 45000));
+        // 2 EQUIPOS AL USUARIO MONO.
+
+        BaseDatos.addEquipToUser("apu", new Equipo("linea 5", "Japus 1", 15000));
+        BaseDatos.addEquipToUser("apu", new Equipo("linea 6", "Japus 2", 34790));
+        // 2 EQUIPOS AL USUARIO APU.
+
+        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 7", "Alvaro 1", 15000));
+        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 8", "Alvaro 2", 34790));
+        // 2 EQUIPOS AL USUARIO ALVARO.
+    }
+
+
 }

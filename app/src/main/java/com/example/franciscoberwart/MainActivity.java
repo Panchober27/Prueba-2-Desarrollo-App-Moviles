@@ -43,7 +43,7 @@ MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         listView = findViewById(R.id.listView);
-        chargeSistem();
+        BaseDatos.chargeSistem();
         adapterUsuarios = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_list_item_1, BaseDatos.listUsers());
         listView.setAdapter(adapterUsuarios);
 
@@ -108,29 +108,6 @@ MainActivity extends AppCompatActivity {
     }
 
     // Metodo para cargar datos Iniciales a los Usuarios y sus Equipos.
-    private void chargeSistem() {
-        BaseDatos.insertUser(new Usuario("pancho", "Francisco", "Berwart", "Informatica"));
-        BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
-        BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));
-        BaseDatos.insertUser(new Usuario("alvaro", "Alvaro", "Guerrero", "Comunicaiones"));
 
-        // BaseDatos. insertar Equipo a usuario.
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 1", "Nada 1", 2000));
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 2", "Nada 1", 2000));
-        // 2 EQUIPOS AL USUARIO PANCHO.
-
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 3", "Mono 1", 12300));
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 4", "Mono 2", 45000));
-        // 2 EQUIPOS AL USUARIO MONO.
-
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 5", "Japus 1", 15000));
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 6", "Japus 2", 34790));
-        // 2 EQUIPOS AL USUARIO APU.
-
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 7", "Alvaro 1", 15000));
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 8", "Alvaro 2", 34790));
-        // 2 EQUIPOS AL USUARIO ALVARO.
-
-    }
 
 }
