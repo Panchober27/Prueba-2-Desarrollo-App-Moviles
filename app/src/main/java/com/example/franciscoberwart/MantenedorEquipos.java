@@ -88,6 +88,7 @@ public class MantenedorEquipos extends AppCompatActivity {
                 adapterEquipos = new ArrayAdapter<Equipo>(MantenedorEquipos.this, android.R.layout.simple_list_item_1,
                         BaseDatos.getTablaEquipos(user.getUsuario()));
                 listaEquipos.setAdapter(adapterEquipos);
+                tvValorTotal.setText("Total a cargo: $" + String.valueOf(BaseDatos.getValorTotal(user.getUsuario())));
             } else {
                 Toast.makeText(MantenedorEquipos.this, "Debe seleccionar un equipo antes de borrar :)", Toast.LENGTH_SHORT).show();
             }
