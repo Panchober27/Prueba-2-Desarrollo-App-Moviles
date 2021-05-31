@@ -30,9 +30,19 @@
 
     </TextView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="25dp"
+        android:text="Equipos a cargo">
+    </TextView>
+
     <ListView
         android:id="@+id/listEquipos"
         android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
 
     </ListView>
