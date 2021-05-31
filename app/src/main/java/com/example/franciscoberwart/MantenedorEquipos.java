@@ -150,7 +150,7 @@ public class MantenedorEquipos extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MantenedorEquipos.this);
         builder.setTitle("Eliminar equipo?");
         builder.setMessage(idequipo)
-                .setIcon(R.mipmap.ic_launcher)
+                .setIcon(R.drawable.ic_out_of_stock)
                 .setCancelable(false)
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override

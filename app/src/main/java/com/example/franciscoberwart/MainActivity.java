@@ -81,7 +81,7 @@ MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Desea eliminar a");
         builder.setMessage(userid)
-                .setIcon(R.mipmap.ic_launcher) // Agregar esto en devDesign
+                .setIcon(R.drawable.ic_denied) // Agregar esto en devDesign
                 .setCancelable(false)
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
