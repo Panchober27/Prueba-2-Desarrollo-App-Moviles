@@ -78,7 +78,19 @@ public class MantenedorEquipos extends AppCompatActivity {
             Toast.makeText(MantenedorEquipos.this, "Añadir un Equipo", Toast.LENGTH_LONG).show();
         }
         if (btn.getId() == R.id.btnDeleteEquipo) { // Boton para
-            Toast.makeText(MantenedorEquipos.this, "Borrar un Equipo", Toast.LENGTH_LONG).show();
+            /**
+             * Esto esta fallando cuando el usaurio presiona borrar sin antes haber seleccionado un equipo :(
+             */
+            if (!idequipo.isEmpty()) {
+                BaseDatos.deleteEquipo(idequipo);
+                Toast.makeText(MantenedorEquipos.this, "Se borro el equipo: " + idequipo, Toast.LENGTH_LONG).show();
+                // Recargar el adapter del listview.
+                adapterEquipos = new ArrayAdapter<Equipo>(MantenedorEquipos.this, android.R.layout.simple_list_item_1,
+                        BaseDatos.getTablaEquipos(user.getUsuario()));
+                listaEquipos.setAdapter(adapterEquipos);
+            } else {
+                Toast.makeText(MantenedorEquipos.this, "Debe seleccionar un equipo antes de borrar :)", Toast.LENGTH_SHORT).show();
+            }
         }
         if (btn.getId() == R.id.btnVolver) { // Boton para volver a la primera activity.
             finish();
@@ -135,6 +147,14 @@ public class MantenedorEquipos extends AppCompatActivity {
     }
 
     private void chargeListEvents() {
+        listaEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Equipo eq = (Equipo) parent.getItemAtPosition(position);
+                idequipo = eq.getSerie(); // Recupero la serie para poder elimnar el equipo despues
+                // Ahora generar logica para elimnar al equipo desde el boton ese.
+            }
+        });
         listaEquipos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
