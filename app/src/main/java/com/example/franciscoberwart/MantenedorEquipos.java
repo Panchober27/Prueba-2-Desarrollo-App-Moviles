@@ -50,6 +50,8 @@ public class MantenedorEquipos extends AppCompatActivity {
 
     // Metodo de inicializacion de componentes.
     private void inits() {
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         tvNomUser = findViewById(R.id.tvNomUser);
         tvDeptUser = findViewById(R.id.tvDeptUser);
         listaEquipos = findViewById(R.id.listEquipos);

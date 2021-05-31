@@ -40,6 +40,8 @@ MainActivity extends AppCompatActivity {
 
     // Metodo para inicializar los componentes.
     private void inits() {
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         listView = findViewById(R.id.listView);
         chargeSistem();
         adapterUsuarios = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_list_item_1, BaseDatos.listUsers());
