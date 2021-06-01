@@ -18,13 +18,41 @@ public class BaseDatos {
 
     //Metodo constructor para que la clase no se pueda instanciar.
     private BaseDatos() {
+
+
+    }
+
+    // Constructor para tener los precios de todos los equipos.
+
+    private void constructorTablaEquipos() {
+        tablaEquipos.add(new Equipo("se10001", "Desc 1", 2000));
+        tablaEquipos.add(new Equipo("se10002", "Desc 1", 2000));
+        tablaEquipos.add(new Equipo("se10003", "Desc 1", 12300));
+        tablaEquipos.add(new Equipo("se10004", "Desc 1", 45000));
+        tablaEquipos.add(new Equipo("se10005", "Desc 1", 15000));
+        tablaEquipos.add(new Equipo("se10006", "Desc 1", 34790));
+        tablaEquipos.add(new Equipo("se10007", "Desc 1", 15000));
+        tablaEquipos.add(new Equipo("se10008", "Desc 1", 34790));
+        tablaEquipos.add(new Equipo("se10009", "Desc 1", 28340)); // NO Ingresados.
+        tablaEquipos.add(new Equipo("se10010", "Desc 1", 35450));
+        tablaEquipos.add(new Equipo("se10011", "Desc 1", 23420));
+        tablaEquipos.add(new Equipo("se10012", "Desc 1", 12310));
+    }
+
+
+    public static Equipo findEquipBySerie(String serie) {
+        for (Equipo e : tablaEquipos) {
+            if (e.getSerie().equals(serie)) {
+                return e;
+            }
+        }
+        return null;
     }
 
 
     // Metodo para agregar un usuario a tabla/lista
     public static boolean insertUser(Usuario user) {
-        tablaUsuarios.add(user);
-        return true;
+        return tablaUsuarios.add(user);
     }
 
     // Metodo para eliminar un usuario, utilizando su atributo usuario como parametro
@@ -45,6 +73,8 @@ public class BaseDatos {
         }
     }
 
+
+    // Carga automatica de equipos.
 
     // Metodo para asignar Equipos a un usuario.
     // Recibe como parametro un usuario y el equipo nuevo.
@@ -127,20 +157,20 @@ public class BaseDatos {
         BaseDatos.insertUser(new Usuario("alvaro", "Alvaro", "Guerrero", "Comunicaiones"));
 
         // BaseDatos. insertar Equipo a usuario.
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 1", "Nada 1", 2000));
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 2", "Nada 1", 2000));
+        BaseDatos.addEquipToUser("pancho", new Equipo("se10001", "Desc 1", 2000));
+        BaseDatos.addEquipToUser("pancho", new Equipo("se10002", "Desc 2", 2000));
         // 2 EQUIPOS AL USUARIO PANCHO.
 
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 3", "Mono 1", 12300));
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 4", "Mono 2", 45000));
+        BaseDatos.addEquipToUser("mono", new Equipo("se10003", "Desc 3", 12300));
+        BaseDatos.addEquipToUser("mono", new Equipo("se10004", "Desc 4", 45000));
         // 2 EQUIPOS AL USUARIO MONO.
 
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 5", "Japus 1", 15000));
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 6", "Japus 2", 34790));
+        BaseDatos.addEquipToUser("apu", new Equipo("se10005", "Desc x", 15000));
+        BaseDatos.addEquipToUser("apu", new Equipo("se10006", "Desc x", 34790));
         // 2 EQUIPOS AL USUARIO APU.
 
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 7", "Alvaro 1", 15000));
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 8", "Alvaro 2", 34790));
+        BaseDatos.addEquipToUser("alvaro", new Equipo("se10007", "Desc x", 15000));
+        BaseDatos.addEquipToUser("alvaro", new Equipo("se10008", "Desc x", 34790));
         // 2 EQUIPOS AL USUARIO ALVARO.
     }
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -61,8 +63,12 @@ public class MantenedorEquipos extends AppCompatActivity {
         btnVolver = findViewById(R.id.btnVolver);
         autoSerieEquipo = findViewById(R.id.autoSeries);
         tvTipoEquipo = findViewById(R.id.tvTipoEquipo);
-        tvValorEquipo = findViewById(R.id.tvTipoEquipo);
+        tvValorEquipo = findViewById(R.id.tvValorEquipo);
         // Carga del arreglo con las series(id) de los equipos.
+
+        // Cargra el adaptador con el arraylist usando getSerie();
+
+
         listSerie = new String[]{
                 "linea 1", "linea 2", "linea 3", "linea 4", "linea 5", "linea 6", "linea 7", "linea 8",
                 "linea 9", "linea 10", "linea 11", "linea 12"};
@@ -148,6 +154,47 @@ public class MantenedorEquipos extends AppCompatActivity {
     }
 
     private void chargeListEvents() {
+        // Obtener datos en base al AutoCompleteTextView.
+        // creo que obtendre los datos de un equipo en base a la serie("linea x")
+        autoSerieEquipo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String input = s.toString();
+                if (input.equals("linea 1")) {
+
+                    // Recorrer la lista de equipo en base al input.
+                    // Usar parent.
+                    tvTipoEquipo.setText(tvTipoEquipo.getText() + "Este es el cambio");
+                    tvValorEquipo.setText(tvValorEquipo.getText() + "12000");
+                } else if (input.equals("linea 1")) {
+
+                } else if (input.equals("linea 2")) {
+
+                } else if (input.equals("linea 3")) {
+
+                } else if (input.equals("linea 4")) {
+
+                } else if (input.equals("linea 5")) {
+
+                } else {
+                    // Nada
+                    tvTipoEquipo.setText("Tipo de Equipo");
+                    tvValorEquipo.setText("Valor Equipo");
+                }
+            }
+        });
+
+
         listaEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
