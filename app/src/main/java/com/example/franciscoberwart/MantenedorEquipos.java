@@ -76,6 +76,12 @@ public class MantenedorEquipos extends AppCompatActivity {
     private void clickButtons(View btn) {
         if (btn.getId() == R.id.btnAddEquipo) { // Boton para añadir un equipo.
             Toast.makeText(MantenedorEquipos.this, "Añadir un Equipo", Toast.LENGTH_LONG).show();
+
+            // Añadiendo un equipo...
+            String userid = user.getUsuario();
+            // Recuperar desde auto complete y valores...
+
+
         }
         if (btn.getId() == R.id.btnDeleteEquipo) { // Boton para
             /**

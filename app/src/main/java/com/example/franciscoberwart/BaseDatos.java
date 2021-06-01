@@ -127,20 +127,20 @@ public class BaseDatos {
         BaseDatos.insertUser(new Usuario("alvaro", "Alvaro", "Guerrero", "Comunicaiones"));
 
         // BaseDatos. insertar Equipo a usuario.
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 1", "Nada 1", 2000));
-        BaseDatos.addEquipToUser("pancho", new Equipo("linea 2", "Nada 1", 2000));
+        BaseDatos.addEquipToUser("pancho", new Equipo("se10001", "Nada 1", 2000));
+        BaseDatos.addEquipToUser("pancho", new Equipo("se10002", "Nada 1", 2000));
         // 2 EQUIPOS AL USUARIO PANCHO.
 
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 3", "Mono 1", 12300));
-        BaseDatos.addEquipToUser("mono", new Equipo("linea 4", "Mono 2", 45000));
+        BaseDatos.addEquipToUser("mono", new Equipo("se10003", "Mono 1", 12300));
+        BaseDatos.addEquipToUser("mono", new Equipo("se10004", "Mono 2", 45000));
         // 2 EQUIPOS AL USUARIO MONO.
 
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 5", "Japus 1", 15000));
-        BaseDatos.addEquipToUser("apu", new Equipo("linea 6", "Japus 2", 34790));
+        BaseDatos.addEquipToUser("apu", new Equipo("se10005", "Japus 1", 15000));
+        BaseDatos.addEquipToUser("apu", new Equipo("se10006", "Japus 2", 34790));
         // 2 EQUIPOS AL USUARIO APU.
 
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 7", "Alvaro 1", 15000));
-        BaseDatos.addEquipToUser("alvaro", new Equipo("linea 8", "Alvaro 2", 34790));
+        BaseDatos.addEquipToUser("alvaro", new Equipo("se10007", "Alvaro 1", 15000));
+        BaseDatos.addEquipToUser("alvaro", new Equipo("se10008", "Alvaro 2", 34790));
         // 2 EQUIPOS AL USUARIO ALVARO.
     }
 
