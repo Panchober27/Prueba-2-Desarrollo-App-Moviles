@@ -18,13 +18,11 @@ public class BaseDatos {
 
     //Metodo constructor para que la clase no se pueda instanciar.
     private BaseDatos() {
-
-
     }
 
     // Constructor para tener los precios de todos los equipos.
 
-    private void constructorTablaEquipos() {
+    public static void constructorTablaEquipos() {
         tablaEquipos.add(new Equipo("se10001", "Desc 1", 2000));
         tablaEquipos.add(new Equipo("se10002", "Desc 1", 2000));
         tablaEquipos.add(new Equipo("se10003", "Desc 1", 12300));
@@ -39,6 +37,23 @@ public class BaseDatos {
         tablaEquipos.add(new Equipo("se10012", "Desc 1", 12310));
     }
 
+
+    // Metodo para obtener todos los equipos por default.
+    public static ArrayList<Equipo> getRealEquipos(){
+        tablaEquipos.add(new Equipo("se10001", "Desc 1", 2000));
+        tablaEquipos.add(new Equipo("se10002", "Desc 1", 2000));
+        tablaEquipos.add(new Equipo("se10003", "Desc 1", 12300));
+        tablaEquipos.add(new Equipo("se10004", "Desc 1", 45000));
+        tablaEquipos.add(new Equipo("se10005", "Desc 1", 15000));
+        tablaEquipos.add(new Equipo("se10006", "Desc 1", 34790));
+        tablaEquipos.add(new Equipo("se10007", "Desc 1", 15000));
+        tablaEquipos.add(new Equipo("se10008", "Desc 1", 34790));
+        tablaEquipos.add(new Equipo("se10009", "Desc 1", 28340)); // NO Ingresados.
+        tablaEquipos.add(new Equipo("se10010", "Desc 1", 35450));
+        tablaEquipos.add(new Equipo("se10011", "Desc 1", 23420));
+        tablaEquipos.add(new Equipo("se10012", "Desc 1", 12310));
+        return tablaEquipos;
+    }
 
     public static Equipo findEquipBySerie(String serie) {
         for (Equipo e : tablaEquipos) {
@@ -151,6 +166,7 @@ public class BaseDatos {
 
     // Metodo para cargar los datos iniciales de la aplicación. Usuarios y Equipos :)
     public static void chargeSistem() {
+        BaseDatos.constructorTablaEquipos(); // Se carga la lista oficial.
         BaseDatos.insertUser(new Usuario("pancho", "Francisco", "Berwart", "Informatica"));
         BaseDatos.insertUser(new Usuario("mono", "Daniel", "Muñoz", "Medicina"));
         BaseDatos.insertUser(new Usuario("apu", "Benjamin", "Meneses", "Informatica"));

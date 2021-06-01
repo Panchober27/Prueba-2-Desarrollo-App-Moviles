@@ -28,7 +28,7 @@ public class MantenedorEquipos extends AppCompatActivity {
     private ListView listaEquipos;
     private ArrayAdapter<Equipo> adapterEquipos;
 
-    private String[] listSerie = new String[12];// para colocar en el autoCompleteTextView
+    private ArrayList<String> listSerie = new ArrayList<String>();// para colocar en el autoCompleteTextView
     private ArrayAdapter<String> adapterSeries;
 
     // Variable para almacenar y utilizar el atributo Equipo-> serie.
@@ -65,15 +65,19 @@ public class MantenedorEquipos extends AppCompatActivity {
         tvTipoEquipo = findViewById(R.id.tvTipoEquipo);
         tvValorEquipo = findViewById(R.id.tvValorEquipo);
         // Carga del arreglo con las series(id) de los equipos.
-
+        /**
+         * Ayuraaa!!
+         */
         // Cargra el adaptador con el arraylist usando getSerie();
-
-
-        listSerie = new String[]{
-                "linea 1", "linea 2", "linea 3", "linea 4", "linea 5", "linea 6", "linea 7", "linea 8",
-                "linea 9", "linea 10", "linea 11", "linea 12"};
+        for (Equipo e : BaseDatos.getRealEquipos()) {
+            listSerie.add(e.getSerie());
+        }
+        //listSerie = new String[]{
+        //      "linea 1", "linea 2", "linea 3", "linea 4", "linea 5", "linea 6", "linea 7", "linea 8",
+        //    "linea 9", "linea 10", "linea 11", "linea 12"};
         adapterSeries = new ArrayAdapter<String>(MantenedorEquipos.this, android.R.layout.simple_list_item_1, listSerie);
         autoSerieEquipo.setAdapter(adapterSeries);
+        //autoSerieEquipo.setThreshold(5);
 
     }
 
@@ -156,40 +160,47 @@ public class MantenedorEquipos extends AppCompatActivity {
     private void chargeListEvents() {
         // Obtener datos en base al AutoCompleteTextView.
         // creo que obtendre los datos de un equipo en base a la serie("linea x")
+
+
         autoSerieEquipo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 String input = s.toString();
-                if (input.equals("linea 1")) {
+                for (Equipo e : BaseDatos.getRealEquipos()) {
+                    if (e.getSerie().equals(input)) {
+                        tvTipoEquipo.setText(tvTipoEquipo.getText() + e.getDescripcion());
+                        tvValorEquipo.setText(tvValorEquipo.getText() + String.valueOf(e.getValor()));
+                    } else {
+                        Log.d("HOLA_", "afterTextChanged: ");
+                        tvTipoEquipo.setText("Tipo de Equipo");
+                        tvValorEquipo.setText("Valor Equipo $");
+                    }
+                }
+            }
+        });
 
-                    // Recorrer la lista de equipo en base al input.
-                    // Usar parent.
-                    tvTipoEquipo.setText(tvTipoEquipo.getText() + "Este es el cambio");
-                    tvValorEquipo.setText(tvValorEquipo.getText() + "12000");
-                } else if (input.equals("linea 1")) {
-
-                } else if (input.equals("linea 2")) {
-
-                } else if (input.equals("linea 3")) {
-
-                } else if (input.equals("linea 4")) {
-
-                } else if (input.equals("linea 5")) {
-
-                } else {
-                    // Nada
-                    tvTipoEquipo.setText("Tipo de Equipo");
-                    tvValorEquipo.setText("Valor Equipo");
+        // Metodo para cargar valores de tipo(descripcion?),(valor) de equipo.
+        autoSerieEquipo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Equipo equipo = (Equipo) parent.getItemAtPosition(position);
+                for (Equipo e : BaseDatos.getRealEquipos()) {
+                    if (e.getSerie().equals(equipo.getSerie())) {
+                        tvTipoEquipo.setText(tvTipoEquipo.getText() + e.getDescripcion());
+                        tvValorEquipo.setText(tvValorEquipo.getText() + String.valueOf(e.getValor()));
+                    } else {
+                        Log.d("HOLA_", "afterTextChanged: ");
+                        tvTipoEquipo.setText("Tipo de Equipo");
+                        tvValorEquipo.setText("Valor Equipo $");
+                    }
                 }
             }
         });
